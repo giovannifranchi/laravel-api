@@ -23,7 +23,7 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->id }}</td>
-                        <td>{{ $project->title }}</td>
+                        <td>{{ $project->title }} @if(count($project->comments) > 0)-({{count($project->comments)}} comments) @endif</td>
                         <td>{{ $project->slug }}</td>
                         <td>{{$project->type?->name ? $project->type->name : 'unknown'}}</td>
                         <td class="d-flex gap-3">
