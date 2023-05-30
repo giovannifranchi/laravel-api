@@ -15,7 +15,7 @@ class ProjectController extends Controller
 
     public function show($id){
         try{
-            $data = Project::where('id', $id)->with('type', 'technologies')->first();
+            $data = Project::where('id', $id)->with('type', 'technologies', 'comments')->first();
 
             if($data){
                 return response()->json($data);
