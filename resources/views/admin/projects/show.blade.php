@@ -24,6 +24,27 @@
         @if (isset($project->image))
             <img src="{{ asset('storage/' . $project->image) }}" alt="{{$project->title}}">
         @endif
+
+        <h3 class="mb-3">Comments:</h3>
+        @if (count($project->comments)>0)
+        <ul class="list-unstyled">
+            @foreach ($project->comments as $comment)
+                <li>
+                    <h4>Author: {{$comment->author}}</h4>
+                    <p>{{$comment->content}}</p>
+                    <form action="{{route('admin.comments.destroy', $comment)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </li>
+            @endforeach
+        </ul>
+        @else
+            <p>No Comments for this Project</p>
+        @endif
+
     </div>
 @endsection
 
