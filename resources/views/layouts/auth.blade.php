@@ -56,6 +56,9 @@
                                 <li class="nav-item">
                                     <a href="{{route('admin.types.index')}}" class="nav-link">{{__('Types')}}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('admin.technologies.index')}}" class="nav-link">{{__('Technologies')}}</a>
+                                </li>
                             @endauth
                         </ul>
 
